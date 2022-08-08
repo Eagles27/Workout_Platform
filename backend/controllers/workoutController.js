@@ -32,6 +32,24 @@ const getWorkout = async (req, res) => {
 const createWorkout = async (req, res) => {
   const { title, reps, load } = req.body;
 
+  // Create Customs Error for missing fields
+  let emptyFields = [];
+
+  if (!title) {
+    emptyFields.push("Title");
+  }
+  if (!reps) {
+    emptyFields.push("Reps");
+  }
+  if (!load) {
+    emptyFields.push("Load");
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all the fields", emptyFields });
+  }
+
   // ADD doc to collection
   try {
     const workout = await Workout.create({ title, reps, load });
