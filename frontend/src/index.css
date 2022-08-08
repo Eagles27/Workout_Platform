@@ -133,6 +133,7 @@ nav button {
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.5s;
+  margin-left: 10px;
 }
 nav button:hover {
   background-color: var(--primary);
