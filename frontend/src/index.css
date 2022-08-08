@@ -123,6 +123,22 @@ nav a {
   margin-left: 10px;
 }
 
+nav button {
+  background-color: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+nav button:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
 /* auth forms */
 form.signup,
 form.login {
