@@ -56,15 +56,21 @@ header a {
   font-size: 0.9em;
   color: #555;
 }
-.workout-details span {
+.workout-details button {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
   padding: 6px;
-  border-radius: 50%;
+  border-radius: 4px;
   color: #333;
+  border: none;
+  transition: background-color 0.5s;
+}
+.workout-details button:hover {
+  background-color: var(--error);
+  color: white;
 }
 
 /* new workout form */
