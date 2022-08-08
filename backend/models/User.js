@@ -17,7 +17,7 @@ const UserSchema = new Schema({
   },
 });
 
-// Static method to authenticate user
+// Static method to Signup user
 UserSchema.statics.signup = async function (email, password) {
   // Inputs validation
   if (!email || !password) {
@@ -44,6 +44,27 @@ UserSchema.statics.signup = async function (email, password) {
     email,
     password: hashedPassword,
   });
+
+  return user;
+};
+
+// Static method to Login user
+UserSchema.statics.login = async function (email, password) {
+  if (!email || !password) {
+    throw new Error("Email and password are required");
+  }
+
+  const user = await this.findOne({ email });
+
+  if (!user) {
+    throw new Error("User not found, Incorrect email");
+  }
+
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) {
+    throw new Error("Incorrect password");
+  }
 
   return user;
 };
